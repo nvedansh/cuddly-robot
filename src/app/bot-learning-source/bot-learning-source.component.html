@@ -1,0 +1,27 @@
+<nb-card>
+    <nb-card-body>
+        <nb-stepper #stepper>
+            <nb-step [stepControl]="firstForm" label="Question">
+                <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+                    <div class="input-group">
+                        <input nbInput type="text" placeholder="Enter common question" class="form-control"
+                            formControlName="firstCtrl"
+                            [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+                    </div>
+                    <button nbButton nbStepperNext class="left-button">next</button>
+                </form>
+            </nb-step>
+            <nb-step [stepControl]="secondForm" label="Answer">
+                <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+                    <div class="input-group">
+                        <input nbInput type="text" placeholder="Enter answer of our question" class="form-control"
+                            formControlName="secondCtrl"
+                            [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+                    </div>
+                    <button nbButton nbStepperPrevious class="left-button">prev</button>
+                    <button nbButton nbStepperNext>Confirm</button>
+                </form>
+            </nb-step>
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>

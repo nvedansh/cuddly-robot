@@ -1,0 +1,66 @@
+<nb-card>
+  <nb-card-body>
+    <nb-stepper #stepper>
+      <nb-step [stepControl]="firstForm" label="Resource Link">
+        <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container">
+          <p class="lorem">
+            Add Resource Link
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter resource link" class="form-control"
+              formControlName="firstCtrl"
+              [ngClass]="{'form-control-danger': firstForm.invalid && (firstForm.dirty || firstForm.touched)}">
+          </div>
+          <button nbButton nbStepperNext class="left-button">next</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="secondForm" label="Expert Name">
+        <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+          <p class="lorem">
+            Resource Expert Name
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter expert name" class="form-control" formControlName="secondCtrl"
+              [ngClass]="{'form-control-danger': secondForm.invalid && (secondForm.dirty || secondForm.touched)}">
+          </div>
+          <button nbButton nbStepperPrevious class="left-button">prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="thirdForm" label="Expert Email/Contact">
+        <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+          <p class="lorem">
+            Resource Expert Email/Contact
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter expert email / contact" class="form-control"
+              formControlName="thirdCtrl"
+              [ngClass]="{'form-control-danger': thirdForm.invalid && (thirdForm.dirty || thirdForm.touched)}">
+          </div>
+          <button nbButton nbStepperPrevious class="left-button">prev</button>
+          <button nbButton nbStepperNext>next</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="fourthForm" label="Duration">
+        <form [formGroup]="fourthForm" (ngSubmit)="onFourthSubmit()" class="step-container">
+          <p class="lorem">
+            Duration To Complete
+          </p>
+          <div class="input-group">
+            <input nbInput type="text" placeholder="Enter duration in hours" class="form-control"
+              formControlName="fourthCtrl"
+              [ngClass]="{'form-control-danger': fourthForm.invalid && (fourthForm.dirty || fourthForm.touched)}">
+          </div>
+          <button nbButton nbStepperPrevious class="left-button">prev</button>
+          <button nbButton nbStepperNext>Confirm</button>
+        </form>
+      </nb-step>
+      <nb-step [stepControl]="fourthForm" [hidden]="true" label="Fourth step">
+        <div class="step-container">
+          <h3>Wizard completed!</h3>
+          <button nbButton (click)="stepper.reset()">Try again</button>
+        </div>
+      </nb-step>
+    </nb-stepper>
+  </nb-card-body>
+</nb-card>
